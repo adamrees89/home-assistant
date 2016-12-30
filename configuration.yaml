@@ -1,0 +1,109 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 51.5488
+  longitude: -3.5958
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 50
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+###########################
+## SENSORS
+###########################
+
+# Weather Prediction
+sensor:
+ - platform: wunderground
+   api_key: 7d20598040523cd7
+   name: "Weather"
+   monitored_conditions:
+#    - alerts
+    - dewpoint_c
+    - temp_c
+    - weather
+    - wind_kph
+ - platform: hp_ilo
+   name: "Atomic Server"
+   host: 192.168.2.251
+   port: 443 
+   username: HA
+   password: homeassistant
+   monitored_variables:
+    - server_power_status
+    - server_power_readings
+    - server_power_on_time
+    - server_health
+    - server_uid_status
+
+#Chromecast
+media_player:
+  - platform: cast
+    name: "Bedroom Chromcast"
+    host: 192.168.2.6
+  - platform: webostv
+
+###########################
+## Groups
+###########################
+
+group:
+  server:
+    - sensor.Atomic_Server
+
+  weather:
+    - sensor.pws_alerts
+    - sensor.pws_dewpoint_c
+    - sensor.pws_temp_c
+    - sensor.pws_weather
+    - sensor.pws_wind_kph
+
+
+###########################
+## Customise
+###########################
+
+#customize:
+#  sensor.pws_alerts
+#    friendly_name: Alerts
+#  sensor.pws_dewpoint_c
+#    friendly_name: Dewpoint
+#  sensor.pws_temp_c
+#    friendly_name: Temperature
+#  sensor.pws_weather
+#    friendly_name: Weather
+#  sensor.pws_wind_kph
+#    friendly_name: Wind Speed
