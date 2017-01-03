@@ -48,7 +48,7 @@ sun:
 # Weather Prediction
 sensor:
  - platform: wunderground
-   api_key: 7d20598040523cd7
+   api_key: XXXXXXXXXXXXXXX
    name: "Weather"
    monitored_conditions:
 #    - alerts
@@ -58,7 +58,7 @@ sensor:
     - wind_kph
  - platform: hp_ilo
    name: "Atomic Server"
-   host: 192.168.2.251
+   host: XXX.XXX.XXX.XXX
    port: 443 
    username: HA
    password: homeassistant
@@ -72,8 +72,8 @@ sensor:
 #Chromecast
 media_player:
   - platform: cast
-    name: "Bedroom Chromcast"
-    host: 192.168.2.6
+    name: "A Chromcast"
+    host: XXX.XXX.XXX.XXX
   - platform: webostv
 
 ###########################
