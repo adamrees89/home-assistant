@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 51.5488
-  longitude: -3.5958
+  latitude: !secrets Lat
+  longitude: !secrets Lon
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 50
   # metric for Metric, imperial for Imperial
@@ -19,7 +19,7 @@ frontend:
 
 http:
   # Uncomment this to add a password (recommended!)
-  # api_password: PASSWORD
+  # api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
@@ -48,7 +48,7 @@ sun:
 # Weather Prediction
 sensor:
  - platform: wunderground
-   api_key: XXXXXXXXXXXXXXX
+   api_key: !secrets WUndergroundAPI
    name: "Weather"
    monitored_conditions:
 #    - alerts
@@ -58,10 +58,10 @@ sensor:
     - wind_kph
  - platform: hp_ilo
    name: "Atomic Server"
-   host: XXX.XXX.XXX.XXX
-   port: 443 
-   username: HA
-   password: homeassistant
+   host: !secrets ILOIP
+   port: 443
+   username: !secrets ILOUser
+   password: !secrets ILOPassword
    monitored_variables:
     - server_power_status
     - server_power_readings
@@ -72,17 +72,19 @@ sensor:
 #Chromecast
 media_player:
   - platform: cast
-    name: "A Chromcast"
-    host: XXX.XXX.XXX.XXX
+    name: "Bedroom Chromcast"
+    host: !secrets BChromecastIP
   - platform: webostv
+    name: "Bedroom TV"
+    host: !secrets BTVIP
 
 ###########################
 ## Groups
 ###########################
 
-group:
-  server:
-    - sensor.Atomic_Server
+#group:
+#  server:
+#    - sensor.Atomic_Server
 
   weather:
     - sensor.pws_alerts
