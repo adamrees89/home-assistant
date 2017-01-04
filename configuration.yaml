@@ -35,6 +35,9 @@ discovery:
 # Enables support for tracking state changes over time.
 history:
 
+recorder:
+  purge_days: 5
+
 # View all events in a logbook
 logbook:
 
