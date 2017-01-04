@@ -84,7 +84,7 @@ media_player:
 
 group:
   server:
-    - sensor.Atomic_Server
+    - sensor.atomic_server
 
   weather:
     - sensor.pws_alerts
