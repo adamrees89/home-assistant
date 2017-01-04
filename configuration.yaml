@@ -35,6 +35,9 @@ discovery:
 # Enables support for tracking state changes over time.
 history:
 
+recorder:
+  purge_days: 5
+
 # View all events in a logbook
 logbook:
 
@@ -51,7 +54,6 @@ sensor:
    api_key: !secrets WUndergroundAPI
    name: "Weather"
    monitored_conditions:
-#    - alerts
     - dewpoint_c
     - temp_c
     - weather
@@ -98,14 +100,12 @@ media_player:
 ## Customise
 ###########################
 
-#customize:
-#  sensor.pws_alerts
-#    friendly_name: Alerts
-#  sensor.pws_dewpoint_c
-#    friendly_name: Dewpoint
-#  sensor.pws_temp_c
-#    friendly_name: Temperature
-#  sensor.pws_weather
-#    friendly_name: Weather
-#  sensor.pws_wind_kph
-#    friendly_name: Wind Speed
+customize:
+  sensor.pws_dewpoint_c
+    friendly_name: 'Dewpoint'
+  sensor.pws_temp_c
+    friendly_name: 'Temperature'
+  sensor.pws_weather
+    friendly_name: 'Weather'
+  sensor.pws_wind_kph
+    friendly_name: 'Wind Speed'
