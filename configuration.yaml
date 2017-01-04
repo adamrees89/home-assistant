@@ -51,7 +51,6 @@ sensor:
    api_key: XXXXXXXXXXXXXXX
    name: "Weather"
    monitored_conditions:
-#    - alerts
     - dewpoint_c
     - temp_c
     - weather
@@ -97,8 +96,6 @@ group:
 ###########################
 
 customize:
-  sensor.pws_alerts
-    friendly_name: 'Alerts'
   sensor.pws_dewpoint_c
     friendly_name: 'Dewpoint'
   sensor.pws_temp_c
