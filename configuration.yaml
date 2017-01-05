@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !secrets Lat
-  longitude: !secrets Lon
+  latitude: !secret Lat
+  longitude: !secret Lon
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 50
   # metric for Metric, imperial for Imperial
@@ -51,7 +51,7 @@ sun:
 # Weather Prediction
 sensor:
  - platform: wunderground
-   api_key: !secrets WUndergroundAPI
+   api_key: !secret WUndergroundAPI
    name: "Weather"
    monitored_conditions:
     - dewpoint_c
@@ -60,10 +60,10 @@ sensor:
     - wind_kph
  - platform: hp_ilo
    name: "Atomic Server"
-   host: !secrets ILOIP
+   host: !secret ILOIP
    port: 443
-   username: !secrets ILOUser
-   password: !secrets ILOPassword
+   username: !secret ILOUser
+   password: !secret ILOPassword
    monitored_variables:
     - server_power_status
     - server_power_readings
@@ -75,10 +75,10 @@ sensor:
 media_player:
   - platform: cast
     name: "Bedroom Chromcast"
-    host: !secrets BChromecastIP
+    host: !secret BChromecastIP
   - platform: webostv
     name: "Bedroom TV"
-    host: !secrets BTVIP
+    host: !secret BTVIP
 
 ###########################
 ## Groups
