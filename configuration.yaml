@@ -91,6 +91,10 @@ panel_iframe:
     title: 'HP Printer'
     icon: mdi:printer-settings
     url: 'http://192.168.2.1'
+  HPILO:
+    title: 'Atomic ILO'
+    icon: mdi:server
+    url: 'http://192.168.2.251'
   
 ###########################
 ## Groups
