@@ -79,6 +79,20 @@ media_player:
   - platform: webostv
 
 ###########################
+## iFrames
+###########################
+
+panel_iframe:
+  router:
+    title: 'Router'
+    icon: mdi:router-wireless
+    url: 'http://192.168.2.1'
+  printer:
+    title: 'HP Printer'
+    icon: mdi:printer-settings
+    url: 'http://192.168.2.1'
+  
+###########################
 ## Groups
 ###########################
 
