@@ -78,9 +78,6 @@ media_player:
   - platform: webostv
     name: "Bedroom TV"
     host: !secret BTVIP
-  - platform: webostv
-    name: "Bedroom TV"
-    host: XXX.XXX.XXX.XXX
 
 
 ###########################
