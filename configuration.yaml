@@ -78,6 +78,9 @@ media_player:
   - platform: webostv
     name: "Bedroom TV"
     host: !secret BTVIP
+  - platform: webostv
+    name: "Living Room TV"
+    host: !secret LTVIP
 
 
 ###########################
@@ -108,8 +111,8 @@ group:
     - sensor.atomic_server_server_power_readings
     - sensor.atomic_server_server_power_state
     - sensor.atomic_server_server_uid_light
-
   weather:
+    - sun.sun
     - sensor.pws_alerts
     - sensor.pws_dewpoint_c
     - sensor.pws_temp_c
