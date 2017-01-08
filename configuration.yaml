@@ -77,7 +77,7 @@ media_player:
     host: XXX.XXX.XXX.XXX
   - platform: webostv
     name: "Bedroom TV"
-	host: XXX.XXX.XXX.XXX
+    host: XXX.XXX.XXX.XXX
 
 ###########################
 ## Groups
