@@ -36,7 +36,7 @@ discovery:
 history:
 
 recorder:
-  purge_days: 5
+  purge_days: 2
 
 # View all events in a logbook
 logbook:
@@ -67,7 +67,6 @@ sensor:
    monitored_variables:
     - server_power_status
     - server_power_readings
-    - server_power_on_time
     - server_health
     - server_uid_status
 
@@ -79,6 +78,10 @@ media_player:
   - platform: webostv
     name: "Bedroom TV"
     host: !secret BTVIP
+  - platform: webostv
+    name: "Bedroom TV"
+    host: XXX.XXX.XXX.XXX
+
 
 ###########################
 ## Groups
@@ -86,7 +89,10 @@ media_player:
 
 group:
   server:
-    - sensor.atomic_server
+    - sensor.atomic_server_server_health
+    - sensor.atomic_server_server_power_readings
+    - sensor.atomic_server_server_power_state
+    - sensor.atomic_server_server_uid_light
 
   weather:
     - sensor.pws_alerts
