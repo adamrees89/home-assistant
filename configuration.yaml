@@ -78,8 +78,29 @@ media_player:
   - platform: webostv
     name: "Bedroom TV"
     host: !secret BTVIP
+  - platform: webostv
+    name: "Living Room TV"
+    host: !secret LTVIP
 
 
+###########################
+## iFrames
+###########################
+
+panel_iframe:
+  router:
+    title: 'Router'
+    icon: mdi:router-wireless
+    url: 'http://192.168.2.1'
+  printer:
+    title: 'HP Printer'
+    icon: mdi:printer-settings
+    url: 'http://192.168.2.1'
+  server1:
+    title: 'Atomic ILO'
+    icon: mdi:server
+    url: 'http://192.168.2.251'
+  
 ###########################
 ## Groups
 ###########################
@@ -90,8 +111,8 @@ group:
     - sensor.atomic_server_server_power_readings
     - sensor.atomic_server_server_power_state
     - sensor.atomic_server_server_uid_light
-
   weather:
+    - sun.sun
     - sensor.pws_alerts
     - sensor.pws_dewpoint_c
     - sensor.pws_temp_c
