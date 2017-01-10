@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/adamrees89/home-assistant.svg?branch=master)](https://travis-ci.org/adamrees89/home-assistant)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/)
+[![GitHub issues](https://img.shields.io/github/issues/adamrees89/home-assistant.svg)](https://github.com/adamrees89/home-assistant/issues)
 
 My personal Home Assistant configuration
 
