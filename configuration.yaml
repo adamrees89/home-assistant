@@ -19,7 +19,7 @@ frontend:
 
 http:
   # Uncomment this to add a password (recommended!)
-  # api_password: PASSWORD
+  # api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
@@ -51,7 +51,7 @@ sun:
 # Weather Prediction
 sensor:
  - platform: wunderground
-   api_key: XXXXXXXXXXXXXXX
+   api_key: !secret WUndergroundAPI
    name: "Weather"
    monitored_conditions:
     - dewpoint_c
@@ -60,10 +60,10 @@ sensor:
     - wind_kph
  - platform: hp_ilo
    name: "Atomic Server"
-   host: XXX.XXX.XXX.XXX
-   port: 443 
-   username: HA
-   password: homeassistant
+   host: !secret ILOIP
+   port: 443
+   username: !secret ILOUser
+   password: !secret ILOPassword
    monitored_variables:
     - server_power_status
     - server_power_readings
@@ -74,11 +74,33 @@ sensor:
 media_player:
   - platform: cast
     name: "Bedroom Chromcast"
-    host: XXX.XXX.XXX.XXX
+    host: !secret BChromecastIP
   - platform: webostv
     name: "Bedroom TV"
-    host: XXX.XXX.XXX.XXX
+    host: !secret BTVIP
+  - platform: webostv
+    name: "Living Room TV"
+    host: !secret LTVIP
 
+
+###########################
+## iFrames
+###########################
+
+panel_iframe:
+  router:
+    title: 'Router'
+    icon: mdi:router-wireless
+    url: 'http://192.168.2.1'
+  printer:
+    title: 'HP Printer'
+    icon: mdi:printer-settings
+    url: 'http://192.168.2.1'
+  server1:
+    title: 'Atomic ILO'
+    icon: mdi:server
+    url: 'http://192.168.2.251'
+  
 ###########################
 ## Groups
 ###########################
@@ -89,8 +111,8 @@ group:
     - sensor.atomic_server_server_power_readings
     - sensor.atomic_server_server_power_state
     - sensor.atomic_server_server_uid_light
-
   weather:
+    - sun.sun
     - sensor.pws_alerts
     - sensor.pws_dewpoint_c
     - sensor.pws_temp_c
