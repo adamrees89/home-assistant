@@ -10,3 +10,8 @@ echo "LTVIP: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "ifttt_key: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "email1: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "email2: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "PCIP: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "PCMAC: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "kodiuser: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "kodipass: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "KODIPORT: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
