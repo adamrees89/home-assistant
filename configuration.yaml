@@ -91,7 +91,7 @@ sensor:
 
 #IFTTT Support
 ifttt:
-  key: !secret: ifttt_key
+  key: !secret ifttt_key
   
 ###########################
 ## MEDIA PLAYERS
