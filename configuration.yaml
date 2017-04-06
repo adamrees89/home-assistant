@@ -48,8 +48,8 @@ sun:
 ## SENSORS
 ###########################
 
-# Weather Prediction
 sensor:
+# Weather Prediction
  - platform: wunderground
    api_key: !secret WUndergroundAPI
    name: "Weather"
@@ -58,6 +58,7 @@ sensor:
     - temp_c
     - weather
     - wind_kph
+#ILO Information
  - platform: hp_ilo
    name: "Atomic Server"
    host: !secret ILOIP
@@ -66,22 +67,64 @@ sensor:
    password: !secret ILOPassword
    monitored_variables:
     - server_power_status
-    - server_power_readings
-    - server_health
     - server_uid_status
+#Pi System Monitor
+ - platform: systemmonitor
+   resources:
+     - type: memory_free
+     - type: disk_use_percent
+       arg: /
+     - type: since_last_boot
+     - type: network_in
+       arg: eth0
+     - type: network_out
+       arg: eth0
+#HaveIBeenPwned Monitor
+ - platform: haveibeenpwned
+   email:
+    - !secret email1
+    - !secret email2
+
+###########################
+## IFTTT
+###########################
+
+#IFTTT Support
+ifttt:
+  key: !secret ifttt_key
+  
+###########################
+## MEDIA PLAYERS
+###########################
 
 #Chromecast
 media_player:
-  - platform: cast
-    name: "Bedroom Chromcast"
-    host: !secret BChromecastIP
-  - platform: webostv
-    name: "Bedroom TV"
-    host: !secret BTVIP
-  - platform: webostv
-    name: "Living Room TV"
-    host: !secret LTVIP
+ - platform: cast
+   name: "Bedroom Chromcast"
+   host: !secret BChromecastIP
+ - platform: webostv
+   name: "Bedroom TV"
+   host: !secret BTVIP
+ - platform: webostv
+   name: "Living Room TV"
+   host: !secret LTVIP
+#KODI
+ - platform: kodi
+   host: !secret PCIP
+   port: !secret KODIPORT
+   name: "Kodi on main PC"
+   username: !secret kodiuser
+   password: !secret kodipass
 
+###########################
+## SWITCHES
+###########################
+
+switch:
+ - platform: wake_on_lan
+   mac_address: !secret PCMAC
+   name: "Main PC"
+   host: !secret PCIP
 
 ###########################
 ## iFrames
@@ -92,10 +135,10 @@ panel_iframe:
     title: 'Router'
     icon: mdi:router-wireless
     url: 'http://192.168.2.1'
-  printer:
-    title: 'HP Printer'
-    icon: mdi:printer-settings
-    url: 'http://192.168.2.1'
+#  printer:
+#    title: 'HP Printer'
+#    icon: mdi:printer-settings
+#    url: 'http://192.168.2.1'
   server1:
     title: 'Atomic ILO'
     icon: mdi:server
