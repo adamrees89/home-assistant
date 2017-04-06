@@ -14,4 +14,4 @@ echo "PCIP: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "PCMAC: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "kodiuser: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "kodipass: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "KODIPORT: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "KODIPORT: 8080" >> $TRAVIS_BUILD_DIR/secrets.yaml
