@@ -66,8 +66,10 @@ sensor:
    username: !secret ILOUser
    password: !secret ILOPassword
    monitored_variables:
-    - server_power_status
-    - server_uid_status
+    - name: server_power_status
+      sensor_type: server_health
+    - name: server_uid_status
+      sensor_type: server_health
 #Pi System Monitor
  - platform: systemmonitor
    resources:
