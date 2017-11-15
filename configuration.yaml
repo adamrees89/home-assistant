@@ -10,6 +10,8 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
+  #Customisations
+  #customise: !include_dir_list customise/
 
 # Show links to resources in log and frontend
 #introduction:
@@ -72,22 +74,16 @@ switch: !include includes/switches.yaml
 ## iFrames
 ###########################
 
-panel_iframe: !include_dir_named iframes/
+panel_iframe: !include_dir_merged_list iframes/
   
 ###########################
 ## Groups
 ###########################
 
-group: !include_dir_named groups/
-
-###########################
-## Customise
-###########################
-
-#customise: !include_dir_list customise/
+group: !include_dir_merged_list groups/
 
 ###########################
 ## Automation
 ###########################
 
-automation: !include_dir_named automation/
+automation: !include_dir_merged_list automation/
