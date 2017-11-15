@@ -74,7 +74,9 @@ switch: !include includes/switches.yaml
 ## iFrames
 ###########################
 
-panel_iframe: !include_dir_merged_named iframes/
+panel_iframe:
+    !include iframes/router.yaml
+    !include iframes/server1.yaml
   
 ###########################
 ## Groups
