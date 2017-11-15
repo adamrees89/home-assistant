@@ -1,3 +1,7 @@
+  server1:
+    title: 'Atomic ILO'
+    icon: mdi:server
+    url: 'http://192.168.2.251'
   router:
     title: 'Router'
     icon: mdi:router-wireless
