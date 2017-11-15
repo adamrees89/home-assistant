@@ -74,7 +74,7 @@ switch: !include includes/switches.yaml
 ## iFrames
 ###########################
 
-panel_iframe: !include_dir_merged_list iframes/
+panel_iframe: !include_dir_merged_named iframes/
   
 ###########################
 ## Groups
