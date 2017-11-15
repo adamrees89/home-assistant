@@ -1,0 +1,5 @@
+  server:
+    - sensor.atomic_server_server_health
+    - sensor.atomic_server_server_power_readings
+    - sensor.atomic_server_server_power_state
+    - sensor.atomic_server_server_uid_light

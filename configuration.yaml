@@ -45,44 +45,7 @@ sun:
 ## SENSORS
 ###########################
 
-sensor:
-# Weather Prediction
- - platform: wunderground
-   api_key: !secret WUndergroundAPI
-   name: "Weather"
-   monitored_conditions:
-    - dewpoint_c
-    - temp_c
-    - weather
-    - wind_kph
-#ILO Information
- - platform: hp_ilo
-   name: "Atomic Server"
-   host: !secret ILOIP
-   port: 443
-   username: !secret ILOUser
-   password: !secret ILOPassword
-   monitored_variables:
-    - name: server_power_status
-      sensor_type: server_health
-    - name: server_uid_status
-      sensor_type: server_health
-#Pi System Monitor
- - platform: systemmonitor
-   resources:
-     - type: memory_free
-     - type: disk_use_percent
-       arg: /
-     - type: since_last_boot
-     - type: network_in
-       arg: eth0
-     - type: network_out
-       arg: eth0
-#HaveIBeenPwned Monitor
- - platform: haveibeenpwned
-   email:
-    - !secret email1
-    - !secret email2
+sensor: !include includes/sensors.yaml
 
 ###########################
 ## IFTTT
@@ -97,81 +60,34 @@ ifttt:
 ###########################
 
 #Chromecast
-media_player:
- - platform: cast
-   name: "Bedroom Chromcast"
-   host: !secret BChromecastIP
- - platform: webostv
-   name: "Bedroom TV"
-   host: !secret BTVIP
- - platform: webostv
-   name: "Living Room TV"
-   host: !secret LTVIP
-#KODI
- - platform: kodi
-   host: !secret PCIP
-   port: !secret KODIPORT
-   name: "Kodi on main PC"
-   username: !secret kodiuser
-   password: !secret kodipass
+media_player: !include includes/media.yaml
 
 ###########################
 ## SWITCHES
 ###########################
 
-switch:
- - platform: wake_on_lan
-   mac_address: !secret PCMAC
-   name: "Main PC"
-   host: !secret PCIP
+switch: !include includes/switches.yaml
 
 ###########################
 ## iFrames
 ###########################
 
-panel_iframe:
-  router:
-    title: 'Router'
-    icon: mdi:router-wireless
-    url: 'http://192.168.2.1'
-#  printer:
-#    title: 'HP Printer'
-#    icon: mdi:printer-settings
-#    url: 'http://192.168.2.1'
-  server1:
-    title: 'Atomic ILO'
-    icon: mdi:server
-    url: 'http://192.168.2.251'
+panel_iframe: !include_dir_list iframes/
   
 ###########################
 ## Groups
 ###########################
 
-group:
-  server:
-    - sensor.atomic_server_server_health
-    - sensor.atomic_server_server_power_readings
-    - sensor.atomic_server_server_power_state
-    - sensor.atomic_server_server_uid_light
-  weather:
-    - sun.sun
-    - sensor.pws_alerts
-    - sensor.pws_dewpoint_c
-    - sensor.pws_temp_c
-    - sensor.pws_weather
-    - sensor.pws_wind_kph
-
+group: !include_dir_list groups/
 
 ###########################
 ## Customise
 ###########################
 
-#customize:
-#  sensor.pws_dewpoint_c
-#    friendly_name: 'Dewpoint'
-#  sensor.pws_temp_c
-#    friendly_name: 'Temperature'
-#  sensor.pws_weather
-#    friendly_name: 'Weather'
-#  sensor.pws_wind_kph
-#    friendly_name: 'Wind Speed'
+customise: !include_dir_list customise/
+
+###########################
+## Automation
+###########################
+
+automation: !include_dir_list automation/
