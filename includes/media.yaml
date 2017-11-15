@@ -1,0 +1,20 @@
+###########################
+## MEDIA PLAYERS
+###########################
+
+ - platform: cast
+   name: "Bedroom Chromcast"
+   host: !secret BChromecastIP
+ - platform: webostv
+   name: "Bedroom TV"
+   host: !secret BTVIP
+ - platform: webostv
+   name: "Living Room TV"
+   host: !secret LTVIP
+#KODI
+ - platform: kodi
+   host: !secret PCIP
+   port: !secret KODIPORT
+   name: "Kodi on main PC"
+   username: !secret kodiuser
+   password: !secret kodipass
