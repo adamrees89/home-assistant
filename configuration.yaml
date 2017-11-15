@@ -72,22 +72,22 @@ switch: !include includes/switches.yaml
 ## iFrames
 ###########################
 
-panel_iframe: !include_dir_list iframes/
+panel_iframe: !include_dir_named iframes/
   
 ###########################
 ## Groups
 ###########################
 
-group: !include_dir_list groups/
+group: !include_dir_named groups/
 
 ###########################
 ## Customise
 ###########################
 
-customise: !include_dir_list customise/
+#customise: !include_dir_list customise/
 
 ###########################
 ## Automation
 ###########################
 
-automation: !include_dir_list automation/
+automation: !include_dir_named automation/
