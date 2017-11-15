@@ -80,7 +80,7 @@ panel_iframe: !include iframe.yaml
 ## Groups
 ###########################
 
-group: !include_dir_merged_list groups/
+group: !include group.yaml
 
 ###########################
 ## Automation
