@@ -86,4 +86,4 @@ group: !include group.yaml
 ## Automation
 ###########################
 
-automation: !include_dir_merged_list automation/
+#automation: !include_dir_merged_list automation/
