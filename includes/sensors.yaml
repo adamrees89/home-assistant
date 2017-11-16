@@ -1,0 +1,41 @@
+###########################
+## SENSORS.YAML
+###########################
+
+# Weather Prediction
+ - platform: wunderground
+   api_key: !secret WUndergroundAPI
+   name: "Weather"
+   monitored_conditions:
+    - dewpoint_c
+    - temp_c
+    - weather
+    - wind_kph
+#ILO Information
+ - platform: hp_ilo
+   name: "Atomic Server"
+   host: !secret ILOIP
+   port: 443
+   username: !secret ILOUser
+   password: !secret ILOPassword
+   monitored_variables:
+    - name: server_power_status
+      sensor_type: server_health
+    - name: server_uid_status
+      sensor_type: server_health
+#Pi System Monitor
+ - platform: systemmonitor
+   resources:
+     - type: memory_free
+     - type: disk_use_percent
+       arg: /
+     - type: since_last_boot
+     - type: network_in
+       arg: eth0
+     - type: network_out
+       arg: eth0
+#HaveIBeenPwned Monitor
+ - platform: haveibeenpwned
+   email:
+    - !secret email1
+    - !secret email2
